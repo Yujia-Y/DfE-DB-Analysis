@@ -141,7 +141,7 @@ for i in range(0, len(features)):
 
     if i != 5:
         ax[i].tick_params(axis='x', labelsize=20)
-        ax[i].set_xlabel("Choice Proportion", fontsize=28)
+        ax[i].set_xlabel("Choice proportion", fontsize=28)
     else:
         ax[i].set_xticks([])
         ax[i].set_xlabel('', fontsize=20, fontweight='bold')

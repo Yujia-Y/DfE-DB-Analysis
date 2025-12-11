@@ -238,7 +238,7 @@ for i in range(len(features)):
     ax[i].spines['right'].set_visible(False)
 
     if i != 5:
-        ax[i].set_xlabel("Choice Proportion", fontsize=28)
+        ax[i].set_xlabel("Choice proportion", fontsize=28)
         ax[i].tick_params(axis='x', labelsize=20)
     else:
         ax[i].set_xlabel("", fontsize=20)
