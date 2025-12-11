@@ -70,75 +70,75 @@ ax = ax.flatten()
 
 # reorganize the data
 features = ['p_risky', 'p_high_EV', 'p_high_mean']
-labels = ['Risk Preference', 'Expected Value', 'Experienced Value']
+labels = ['Risk taking', 'Expected value', 'Experienced mean']
 
 df1 = df[df['incentivization'] == 'yes']
 df1['categories'] = '1'
-df1['group'] = 'incentivization'
+df1['group'] = 'Incentivization'
 df2 = df[df['incentivization'] == 'no']
 df2['categories'] = '2'
-df2['group'] = 'incentivization'
+df2['group'] = 'Incentivization'
 df3 = df[df['domain'] == 'gain']
 df3['categories'] = '1'
-df3['group'] = 'domain'
+df3['group'] = 'Domain'
 df4 = df[df['domain'] == 'loss']
 df4['categories'] = '2'
-df4['group'] = 'domain'
+df4['group'] = 'Domain'
 df5 = df[df['domain'] == 'mixed']
 df5['categories'] = '3'
-df5['group'] = 'domain'
+df5['group'] = 'Domain'
 df6 = df[df['feedback_format'] == 'partial']
 df6['categories'] = '1'
-df6['group'] = 'feedback format'
+df6['group'] = 'Feedback format'
 df7 = df[df['feedback_format'] == 'full']
 df7['categories'] = '2'
-df7['group'] = 'feedback format'
+df7['group'] = 'Feedback format'
 df8 = df[df['problem_type'] == 'risky_risky']
 df8['categories'] = '1'
-df8['group'] = 'problem type'
+df8['group'] = 'Problem type'
 df9 = df[df['problem_type'] == 'risky_safe']
 df9['categories'] = '2'
-df9['group'] = 'problem type'
+df9['group'] = 'Problem type'
 df10 = df[df['identical_outcome'] == 1]
 df10['categories'] = '1'
-df10['group'] = 'identical outcome'
+df10['group'] = 'Identical outcome'
 df11 = df[df['identical_outcome'] == 0]
 df11['categories'] = '2'
-df11['group'] = 'identical outcome'
+df11['group'] = 'Identical outcome'
 df12 = df[df['free_samp'] == 1]
 df12['categories'] = '1'
-df12['group'] = 'sampling'
+df12['group'] = 'Sampling'
 df13 = df[df['free_samp'] == 0]
 df13['categories'] = '2'
-df13['group'] = 'sampling'
+df13['group'] = 'Sampling'
 df14 = df[df['feedback_type'] == 'outcome']
 df14['categories'] = '1'
-df14['group'] = 'feedback type'
+df14['group'] = 'Feedback type'
 df15 = df[df['feedback_type'] == 'event']
 df15['categories'] = '2'
-df15['group'] = 'feedback type'
+df15['group'] = 'Feedback type'
 df16 = df[df['stationarity'] == 0]
 df16['categories'] = '2'
-df16['group'] = 'stationarity'
+df16['group'] = 'Stationarity'
 df17 = df[df['stationarity'] == 1]
 df17['categories'] = '1'
-df17['group'] = 'stationarity'
+df17['group'] = 'Stationarity'
 df18 = df[df['n_trial'] == 1]
 df18['categories'] = '1'
-df18['group'] = 'number of trials'
+df18['group'] = 'Number of trials'
 df19 = df[df['n_trial'] == 2]
 df19['categories'] = '2'
-df19['group'] = 'number of trials'
+df19['group'] = 'Number of trials'
 df20 = df[df['n_trials'] == 3]
 df20['categories'] = '3'
-df20['group'] = 'number of trials'
+df20['group'] = 'Number of trials'
 
 
 df_long =pd.concat([df6, df7, df14, df15, df16, df17, df10, df11, df12, df13, df1, df2, df8, df9, df3, df4, df5, df18, df19, df20])
 
 df_long['group'] = df_long['group'].astype(str)
 
-categories = ['feedback format', 'feedback type', 'stationarity', 'identical outcome', 'sampling', 'incentivization',  'problem type',  'domain', 'number of trials']
+categories = ['Feedback format', 'Feedback type', 'Stationarity', 'Identical outcome', 'Sampling', 'Incentivization',  'Problem type',  'Domain', 'Number of trials']
 category_sub = ['partial', 'full', '', 'outcome', 'event', '',  'stationary', 'dynamic', '', 'yes', 'no', '', 'yes', 'no', '', 'yes', 'no', '', 'risky-risky', 'risky-safe', '', 'gain', 'loss', 'mixed', '1-50', '51-100', '>100']
 
 
@@ -257,15 +257,15 @@ plt.show()
 
 # calculate cohen's d
 category_label_map = {
-    'feedback format': {'1': 'partial', '2': 'full'},
-    'feedback type': {'1': 'outcome', '2': 'event'},
-    'identical outcome': {'1': 'yes', '2': 'no'},
-    'stationarity': {'1': 'stationary', '2': 'dynamic'},
-    'sampling': {'1': 'yes', '2': 'no'},
-    'incentivization': {'1': 'yes', '2': 'no'},
-    'problem type': {'1': 'risky_risky', '2': 'risky_safe'},
-    'domain': {'1': 'gain', '2': 'loss', '3': 'mixed'},
-    'number of trials': {'1': '1-50', '2': '51-100', '3': '>100'}
+    'Feedback format': {'1': 'partial', '2': 'full'},
+    'Feedback type': {'1': 'outcome', '2': 'event'},
+    'Identical outcome': {'1': 'yes', '2': 'no'},
+    'Stationarity': {'1': 'stationary', '2': 'dynamic'},
+    'Sampling': {'1': 'yes', '2': 'no'},
+    'Incentivization': {'1': 'yes', '2': 'no'},
+    'Problem type': {'1': 'risky_risky', '2': 'risky_safe'},
+    'Domain': {'1': 'gain', '2': 'loss', '3': 'mixed'},
+    'Number of trials': {'1': '1-50', '2': '51-100', '3': '>100'}
 }
 
 cohen_results = []

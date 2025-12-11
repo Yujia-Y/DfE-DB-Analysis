@@ -61,6 +61,9 @@ data_name = 'statistic_info_lottery_pproblem_full_withpredict.csv'
 data_path = data_dir/data_name
 df = pd.read_csv(data_path)
 
+# capitalize
+df['paradigm'] = df['paradigm'].str.capitalize()
+
 # draw plot
 colormap = plt.get_cmap('viridis')
 colors = colormap(np.linspace(0.1, 1, 10))
@@ -69,8 +72,8 @@ ax = ax.flatten()
 
 features = ['p_risky', 'p_high_EV', 'p_high_mean']
 predict_features = ['p_risky_pre', 'p_high_EV_pre', 'p_high_mean_pre']
-labels = ['Risk Preference', 'Expected Value', 'Experienced Value']
-paradigm_order = ['free sampling', 'regulated sampling', 'lottery bandits', 'description bandits', 'dynamic bandits', 'probability learning', 'binary prediction', 'social binary prediction', 'other']
+labels = ['Risk taking', 'Expected value', 'Experienced mean']
+paradigm_order = ['Free sampling', 'Regulated sampling', 'Lottery bandits', 'Description bandits', 'Dynamic bandits', 'Probability learning', 'Binary prediction', 'Social binary prediction', 'Other']
 
 
 def compute_cohens_d(x1, x2):

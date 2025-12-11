@@ -56,14 +56,14 @@ data = pd.read_csv(data_path)
 # create label
 data["options2"] = data["options"].str.split("_").apply(lambda x: "".join(sorted(x)))
 
-data['study'] = data['paper'].astype(str) + "_" + data['study'].astype(str)
-data['problem'] = data['paper'].astype(str) + "_" + data['study'].astype(str) + "_" + data['condition'].astype(str) + "_" + data['problem'].astype(str) + "_" + data['options2'].astype(str)
-data['participant'] = data['paper'].astype(str) + "_" + data['study'].astype(str) + "_" + data['participant'].astype(str)
+data['Study'] = data['paper'].astype(str) + "_" + data['study'].astype(str)
+data['Problem'] = data['paper'].astype(str) + "_" + data['study'].astype(str) + "_" + data['condition'].astype(str) + "_" + data['problem'].astype(str) + "_" + data['options2'].astype(str)
+data['Participant'] = data['paper'].astype(str) + "_" + data['study'].astype(str) + "_" + data['participant'].astype(str)
 
 # set y and group labels
 value_cols = ['p_risky', 'p_high_EV', 'p_high_mean']
-value_titles = ['Risk Preference', 'Expected Value', 'Experienced Value']
-group_labels = ['participant', 'problem', 'study']
+value_titles = ['Risk taking', 'Expected Value', 'Experienced mean']
+group_labels = ['Participant', 'Problem', 'Study']
 
 # draw plot
 fig, axes = plt.subplots(1, 3, figsize=(24, 6), sharey=True)
