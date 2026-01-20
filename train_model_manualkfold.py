@@ -29,7 +29,7 @@ ensure_package('joblib')
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-import shap  # 新增依赖
+import shap
 import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
